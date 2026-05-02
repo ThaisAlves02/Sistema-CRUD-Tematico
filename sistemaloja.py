@@ -13,6 +13,12 @@ loja_informatica = [
 
     ]
 
+
+
+# ---- Funções Ferramentas ----
+
+
+
 # ---- Operações CRUD ----
 def cadastrar_produto():
     print("CADASTRAR PRODUTOS")
