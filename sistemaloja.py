@@ -18,7 +18,7 @@ def cadastrar_produto():
     print("CADASTRAR PRODUTOS")
     nome_produto = input("Digite o nome do produto: ")
     preco_produto = input("Digite o preço do produto: ")
-    qtd_produto = input("Digite o quantidade do produto: ")
+    qtd_produto = input("Digite a quantidade do produto: ")
 
     novo_produto = {
         "nome": nome_produto,
@@ -29,15 +29,15 @@ def cadastrar_produto():
     loja_informatica.append(novo_produto)
 
 
-def ver_produtos():
+def ver_produto():
     print("VISUALIZAR PRODUTOS")
     for i, produto in enumerate(loja_informatica):
         print(f"{i+1}. {produto["nome"]} | {produto["preço"]} | {produto["quantidade"]}")
 
 
-def alterar_produtos():
-    ver_produtos()
-    
+def alterar_produto():
+    ver_produto()
+
     num = int(input("Digite o número do produto que deseja remover: "))
 
     produto_escolhido = loja_informatica[num - 1]
@@ -62,4 +62,54 @@ def alterar_produtos():
         PREÇO: R${produto_escolhido['preço']}
         QUANTIDADE: {produto_escolhido['quantidade']}
             """)
-    
+            
+def remover_produto():
+      ver_produto()
+      
+      num = int(input ("Digite o número do produto que você deseja remover: "))
+      
+      produto_escolhido = loja_informatica.pop(num - 1) 
+      
+      print(f"PRODUTO REMOVIDO COM SUCESSO!")
+      
+def menu_principal():
+    while True:
+
+        print(f"""
+BEM VINDO AO SISTEMA DA NOSSA LOJA!
+          
+Menu:
+          
+          1. Cadastrar produto
+          2. Ver produto
+          3. Alterar produto
+          4. Remover produto
+
+          0. Sair
+""")
+
+        op = input("Digite a opção desejada:")
+
+        if op == "1":
+            cadastrar_produto()
+
+        elif op == "2":
+            ver_produto()
+
+        elif op == "3":
+            alterar_produto()
+
+        elif op == "4":
+            remover_produto()
+
+        elif op == "0":
+            print("SAINDO DO PROGRAMA...")
+            break
+
+        else:
+            print("DIGITE A OPÇÃO NOVAMENTE")
+
+        input("TECLE ENTER PARA CONTINUAR")
+
+
+menu_principal()
