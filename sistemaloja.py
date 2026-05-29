@@ -13,6 +13,7 @@ loja_informatica = [
 
     ]
 
+
 # ---- Operações CRUD ----
 def cadastrar_produto():
     print("CADASTRAR PRODUTOS")
@@ -38,9 +39,9 @@ def ver_produtos():
 def alterar_produtos():
     ver_produtos()
     
-    num = int(input("Digite o número do produto que deseja remover: "))
+    num_produto = int(input("Digite o número do produto que deseja alterar: "))
 
-    produto_escolhido = loja_informatica[num - 1]
+    produto_escolhido = loja_informatica[num_produto - 1]
 
     novo_nome = input(f"Digite o novo nome ({produto_escolhido["nome"]}): ")
     if novo_nome:
@@ -62,4 +63,60 @@ def alterar_produtos():
         PREÇO: R${produto_escolhido['preço']}
         QUANTIDADE: {produto_escolhido['quantidade']}
             """)
+    
+def remover_produtos():
+    
+    ver_produtos()
+    
+    num_produto = int(input("Digite o numero do produto que você quer remover:"))
+    
+    produto_escolhido = loja_informatica[num_produto - 1]
+    
+    loja_informatica.remove(produto_escolhido)
+    
+    print(f"""
+          Nome : {produto_escolhido["nome"]}
+          Preço : {produto_escolhido["preço"]}
+          Estoque : {produto_escolhido["quantidade"]}
+          """)
+    
+while True:
+        
+    print(f"""
+        BEM VINDOS A LOJA DE INFORMÁTICA T&S
+        
+        1. CADASTRAR PRODUTOS
+        2. VER PRODUTOS
+        3. REMOVER PRODUTOS
+        4. ALTERAR PRODUTOS
+        0. SAIR
+    """)
+        
+    opcao = input("Digite a opcao desejada:")
+        
+    if opcao == "1":
+        cadastrar_produto()
+            
+    elif opcao == "2":
+        ver_produtos()
+            
+    elif opcao == "3":
+        remover_produtos()
+            
+    elif opcao == "4":
+        alterar_produtos()
+            
+    elif opcao == "0":
+        print("Encerrando O Programa!")
+
+        
+
+        
+    
+    
+
+    
+    
+    
+    
     
