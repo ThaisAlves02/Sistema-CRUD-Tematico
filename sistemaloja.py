@@ -19,7 +19,7 @@ def cadastrar_produto():
     print("CADASTRAR PRODUTOS")
     nome_produto = input("Digite o nome do produto: ")
     preco_produto = input("Digite o preço do produto: ")
-    qtd_produto = input("Digite o quantidade do produto: ")
+    qtd_produto = input("Digite a quantidade do produto: ")
 
     novo_produto = {
         "nome": nome_produto,
